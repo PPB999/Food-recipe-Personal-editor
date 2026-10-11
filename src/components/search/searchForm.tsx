@@ -1,11 +1,16 @@
 interface SearchFormProps {
-  handleOnChange: (text: any) => void;
+  recipeSearch: string;
+  setRecipeSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const SearchForm = ({ handleOnChange }: SearchFormProps) => {
+const SearchForm = (props: SearchFormProps) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    props.setRecipeSearch(e.target.value);
+  };
   return (
     <div>
       <input
+        value={props.recipeSearch}
         onChange={handleOnChange}
         className="p-2.5  border border-black  text-sm rounded-lg focus:ring-[#375EAA] block w-50"
       />
