@@ -1,7 +1,14 @@
-const SearchForm = () => {
+interface SearchFormProps {
+  handleOnChange: (text: any) => void;
+}
+
+const SearchForm = ({ handleOnChange }: SearchFormProps) => {
   return (
     <div>
-      <input className="p-2.5  border border-black  text-sm rounded-lg focus:ring-[#375EAA] block w-50" />
+      <input
+        onChange={handleOnChange}
+        className="p-2.5  border border-black  text-sm rounded-lg focus:ring-[#375EAA] block w-50"
+      />
     </div>
   );
 };

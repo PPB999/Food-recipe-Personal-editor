@@ -6,7 +6,7 @@ import Collection from "./pages/collection/collectionPage";
 import CreateRecipe from "./pages/createRecipe/createRecipePage";
 import CollectionRecipe from "./pages/collectionRecipe/collectionRecipePage";
 import EditRecipe from "./pages/editRecipe/editRecipePage";
-import MainLayout from "./components/layout/mainLayout";
+import MainLayout from "./components/layout/MainLayout";
 
 function App() {
   const router = createBrowserRouter([
