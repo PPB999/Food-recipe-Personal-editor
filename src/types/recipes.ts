@@ -4,3 +4,11 @@ export interface Recipe {
   image?: string;
   description?: string;
 }
+
+export interface RecipeForm {
+  name: string;
+  image: string;
+  description: string;
+  ingredients: string[];
+  directions: string[];
+}
