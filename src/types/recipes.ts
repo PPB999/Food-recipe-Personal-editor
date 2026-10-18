@@ -5,7 +5,7 @@ export interface Recipe {
   description?: string;
 }
 
-export interface RecipeForm {
+export interface RecipeFormValue {
   name: string;
   image: string;
   description: string;

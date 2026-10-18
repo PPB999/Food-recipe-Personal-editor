@@ -1,13 +1,13 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Recipe from "./pages/recipes/recipePages";
-import Home from "./pages/home/homePages";
-import Profile from "./pages/profile/profilePage";
-import Collection from "./pages/collection/collectionPage";
-import CreateRecipe from "./pages/createRecipe/createRecipePage";
-import CollectionRecipe from "./pages/collectionRecipe/collectionRecipePage";
-import EditRecipe from "./pages/editRecipe/editRecipePage";
+import Recipe from "./pages/recipes/RecipePages";
+import Home from "./pages/home/HomePages";
+import Profile from "./pages/profile/ProfilePage";
+import Collection from "./pages/collection/CollectionPage";
+import CreateRecipe from "./pages/createRecipe/CreateRecipePage";
+import CollectionRecipe from "./pages/collectionRecipe/CollectionRecipePage";
+import EditRecipe from "./pages/editRecipe/EditRecipePage";
 import MainLayout from "./components/layout/MainLayout";
-import RecipeForm from "./pages/recipeFormPage/recipeFormPage";
+import RecipeForm from "./pages/recipeFormPage/RecipeFormPage";
 
 function App() {
   const router = createBrowserRouter([
