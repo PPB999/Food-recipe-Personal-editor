@@ -3,11 +3,10 @@ import Recipe from "./pages/recipes/RecipePages";
 import Home from "./pages/home/HomePages";
 import Profile from "./pages/profile/ProfilePage";
 import Collection from "./pages/collection/CollectionPage";
-import CreateRecipe from "./pages/createRecipe/CreateRecipePage";
 import CollectionRecipe from "./pages/collectionRecipe/CollectionRecipePage";
-import EditRecipe from "./pages/editRecipe/EditRecipePage";
+import EditRecipeFormPage from "./pages/editRecipe/EditRecipePage";
 import MainLayout from "./components/layout/MainLayout";
-import RecipeFormPage from "./pages/recipeFormPage/RecipeFormPage";
+import CreateRecipeFormPage from "./pages/CreateRecipeFormPage/CreateRecipeFormPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -20,7 +19,7 @@ function App() {
           element: <Home />,
         },
         {
-          path: "recipe/:recipeNO",
+          path: "recipe/:recipeID",
           element: <Recipe />,
         },
         {
@@ -28,24 +27,20 @@ function App() {
           element: <Profile />,
         },
         {
-          path: "profile/createRecipe",
-          element: <CreateRecipe />,
-        },
-        {
           path: "profile/recipeForm",
-          element: <RecipeFormPage />,
+          element: <CreateRecipeFormPage />,
         },
         {
           path: "profile/collectionPage",
           element: <Collection />,
         },
         {
-          path: "profile/collectionPage/:recipeNO",
+          path: "profile/collectionPage/:recipeID",
           element: <CollectionRecipe />,
         },
         {
-          path: "profile/collectionPage/:recipeNO/edit",
-          element: <EditRecipe />,
+          path: "profile/collectionPage/:recipeID/edit",
+          element: <EditRecipeFormPage />,
         },
       ],
     },

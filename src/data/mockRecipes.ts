@@ -1,0 +1,70 @@
+import type { RecipeFormValue } from "../types/recipes";
+
+export const mockRecipes: (RecipeFormValue & { ID: number })[] = [
+  {
+    ID: 1,
+    name: "Chocolate Souffle",
+    image: "/favicon.svg",
+    description: "A rich & creamy chocolate dessert",
+    ingredients: ["Sugar", "White egg", "Dark Chocolate", "Butter"],
+    directions: [
+      "glaze mold with butter&sugar",
+      "Beat White egg&sugar",
+      "Add Chocolate",
+      "Bake at 180c",
+    ],
+  },
+  {
+    ID: 2,
+    name: "Vanilla Eclair",
+    image: "/favicon.svg",
+    description: "",
+    ingredients: [
+      "Whole egg",
+      "Sugar",
+      "All purpose flour",
+      "Water",
+      "Salt",
+      "Butter",
+      "Vanilla flavor",
+    ],
+    directions: [""],
+  },
+  {
+    ID: 3,
+    name: "Crab roe fried rice",
+    image: "/favicon.svg",
+    description: "",
+    ingredients: [
+      "Cooked rice",
+      "Crab meat",
+      "Crab roe",
+      "Onion",
+      "Egg",
+      "Seasoning",
+      "Oil",
+    ],
+    directions: [""],
+  },
+  {
+    ID: 4,
+    name: "Gulab Jamun",
+    image: "/favicon.svg",
+    description: "An Indian-style fried dessert with syrup",
+    ingredients: [""],
+    directions: [""],
+  },
+  {
+    ID: 5,
+    name: "Spaghetti pesto sauce",
+    image: "/favicon.svg",
+    description: "",
+    ingredients: [""],
+    directions: [
+      "Boil pasta for 6 minute",
+      "Turn on the stove - Add olive oil & garlic in the pan",
+      "Add the pasta into the pan",
+      "Add pesto sauce and seasoning",
+    ],
+  },
+];

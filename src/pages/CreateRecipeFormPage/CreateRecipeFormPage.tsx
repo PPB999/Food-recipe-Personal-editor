@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import RecipeForm from "../../components/recipe/RecipeForm";
 import type { RecipeFormValue } from "../../types/recipes";
 
-const RecipeFormPage = () => {
+const CreateRecipeFormPage = () => {
   const navigate = useNavigate();
 
   const handleCreateRecipe = (values: RecipeFormValue) => {
@@ -15,4 +15,4 @@ const RecipeFormPage = () => {
   );
 };
 
-export default RecipeFormPage;
+export default CreateRecipeFormPage;
