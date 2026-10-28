@@ -3,6 +3,7 @@ export interface Recipe {
   name: string;
   image?: string;
   description?: string;
+  // owner: string;
 }
 
 export interface RecipeFormValue {

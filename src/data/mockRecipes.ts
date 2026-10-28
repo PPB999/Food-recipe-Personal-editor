@@ -4,7 +4,7 @@ export const mockRecipes: (RecipeFormValue & { ID: number })[] = [
   {
     ID: 1,
     name: "Chocolate Souffle",
-    image: "/favicon.svg",
+    image: "/choc-souffle.jpg",
     description: "A rich & creamy chocolate dessert",
     ingredients: ["Sugar", "White egg", "Dark Chocolate", "Butter"],
     directions: [
@@ -17,7 +17,7 @@ export const mockRecipes: (RecipeFormValue & { ID: number })[] = [
   {
     ID: 2,
     name: "Vanilla Eclair",
-    image: "/favicon.svg",
+    image: "/eclair.jpg",
     description: "",
     ingredients: [
       "Whole egg",
@@ -33,7 +33,7 @@ export const mockRecipes: (RecipeFormValue & { ID: number })[] = [
   {
     ID: 3,
     name: "Crab roe fried rice",
-    image: "/favicon.svg",
+    image: "/crab-fried-rice-6.jpg",
     description: "",
     ingredients: [
       "Cooked rice",
@@ -49,7 +49,7 @@ export const mockRecipes: (RecipeFormValue & { ID: number })[] = [
   {
     ID: 4,
     name: "Gulab Jamun",
-    image: "/favicon.svg",
+    image: "/gulab-jamun.jpg",
     description: "An Indian-style fried dessert with syrup",
     ingredients: [""],
     directions: [""],
@@ -57,7 +57,7 @@ export const mockRecipes: (RecipeFormValue & { ID: number })[] = [
   {
     ID: 5,
     name: "Spaghetti pesto sauce",
-    image: "/favicon.svg",
+    image: "/pesto-pasta.jpg",
     description: "",
     ingredients: [""],
     directions: [

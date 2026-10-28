@@ -7,6 +7,7 @@ import CollectionRecipe from "./pages/collectionRecipe/CollectionRecipePage";
 import EditRecipeFormPage from "./pages/editRecipe/EditRecipePage";
 import MainLayout from "./components/layout/MainLayout";
 import CreateRecipeFormPage from "./pages/CreateRecipeFormPage/CreateRecipeFormPage";
+import { RecipeProvider } from "./context/RecipeContext";
 
 function App() {
   const router = createBrowserRouter([
@@ -27,7 +28,7 @@ function App() {
           element: <Profile />,
         },
         {
-          path: "profile/recipeForm",
+          path: "profile/createRecipePage",
           element: <CreateRecipeFormPage />,
         },
         {
@@ -46,9 +47,9 @@ function App() {
     },
   ]);
   return (
-    <div>
+    <RecipeProvider>
       <RouterProvider router={router} />
-    </div>
+    </RecipeProvider>
   );
 }
 
