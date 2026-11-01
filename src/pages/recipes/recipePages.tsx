@@ -1,10 +1,11 @@
 import { Link, useParams } from "react-router-dom";
-import { mockRecipes } from "../../data/mockRecipes";
+import { useRecipes } from "../../context/RecipeContext";
 
 const Recipe = () => {
   const { recipeID } = useParams();
+  const { recipes } = useRecipes();
 
-  const recipe = mockRecipes.find((item) => item.ID === Number(recipeID));
+  const recipe = recipes.find((item) => item.ID === Number(recipeID));
 
   if (!recipe) {
     return (

@@ -8,7 +8,15 @@ type Recipe = RecipeFormValue & {
 
 interface RecipeContextValue {
   recipes: Recipe[];
+  collectionRecipes: CollectionRecipeValue[];
   addRecipe: (values: RecipeFormValue) => void;
+  saveCollectionRecipe: (recipe: Recipe) => void;
+}
+
+interface CollectionRecipeValue {
+  collectionID: number;
+  sourceRecipeID: number;
+  recipe: Recipe;
 }
 
 const RecipeContext = createContext<RecipeContextValue | undefined>(undefined);
@@ -20,6 +28,10 @@ interface RecipeProviderProps {
 export const RecipeProvider = ({ children }: RecipeProviderProps) => {
   const [recipes, setRecipes] = useState<Recipe[]>(mockRecipes);
 
+  const [collectionRecipes, setCollectionRecipes] = useState<
+    CollectionRecipeValue[]
+  >([]);
+
   const addRecipe = (values: RecipeFormValue) => {
     const newRecipe: Recipe = {
       ...values,
@@ -27,8 +39,33 @@ export const RecipeProvider = ({ children }: RecipeProviderProps) => {
     };
     setRecipes((prevRecipes) => [...prevRecipes, newRecipe]);
   };
+
+  const saveCollectionRecipe = (recipe: Recipe) => {
+    const alreadySaved = collectionRecipes.some(
+      (item) => item.sourceRecipeID === recipe.ID,
+    );
+    if (alreadySaved) {
+      return;
+    }
+    const newCollectionRecipe: CollectionRecipeValue = {
+      collectionID: Date.now(),
+      sourceRecipeID: recipe.ID,
+      recipe: {
+        ...recipe,
+        ingredients: [...recipe.ingredients],
+        directions: [...recipe.directions],
+      },
+    };
+    setCollectionRecipes((prevRecipes) => [
+      ...prevRecipes,
+      newCollectionRecipe,
+    ]);
+  };
+
   return (
-    <RecipeContext.Provider value={{ recipes, addRecipe }}>
+    <RecipeContext.Provider
+      value={{ recipes, collectionRecipes, addRecipe, saveCollectionRecipe }}
+    >
       {children}
     </RecipeContext.Provider>
   );

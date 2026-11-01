@@ -2,12 +2,13 @@ import RecipeCard from "../../components/recipe/RecipeCard";
 import RecipeCardSearch from "../../components/recipeSearch/RecipeCardSearch";
 import SearchForm from "../../components/search/SearchForm";
 import { useState } from "react";
-import { mockRecipes } from "../../data/mockRecipes";
+import { useRecipes } from "../../context/RecipeContext";
 
 const Home = () => {
   const [recipeSearch, setRecipeSearch] = useState("");
+  const { recipes } = useRecipes();
 
-  const filterRecipe = mockRecipes.filter((recipeName) => {
+  const filterRecipe = recipes.filter((recipeName) => {
     return recipeName.name.toLowerCase().includes(recipeSearch.toLowerCase());
   });
 
@@ -37,7 +38,7 @@ const Home = () => {
         )}
       </div>
       <div className="w-full flex flex-row flex-wrap gap-10 justify-center">
-        {mockRecipes.map((recipe) => (
+        {recipes.map((recipe) => (
           <RecipeCard key={recipe.ID} recipe={recipe} />
         ))}
       </div>
