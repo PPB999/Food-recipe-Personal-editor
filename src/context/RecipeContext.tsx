@@ -11,6 +11,11 @@ interface RecipeContextValue {
   collectionRecipes: CollectionRecipeValue[];
   addRecipe: (values: RecipeFormValue) => void;
   saveCollectionRecipe: (recipe: Recipe) => void;
+  updateCollectionRecipe: (
+    collectionID: number,
+    values: RecipeFormValue,
+  ) => void;
+  deleteCollectionRecipe: (collectionID: number) => void;
 }
 
 interface CollectionRecipeValue {
@@ -45,6 +50,7 @@ export const RecipeProvider = ({ children }: RecipeProviderProps) => {
       (item) => item.sourceRecipeID === recipe.ID,
     );
     if (alreadySaved) {
+      console.log("Recipe already saved");
       return;
     }
     const newCollectionRecipe: CollectionRecipeValue = {
@@ -56,15 +62,50 @@ export const RecipeProvider = ({ children }: RecipeProviderProps) => {
         directions: [...recipe.directions],
       },
     };
+
     setCollectionRecipes((prevRecipes) => [
       ...prevRecipes,
       newCollectionRecipe,
     ]);
   };
 
+  const updateCollectionRecipe = (
+    collectionID: number,
+    values: RecipeFormValue,
+  ) => {
+    setCollectionRecipes((prevRecipes) =>
+      prevRecipes.map((item) =>
+        item.collectionID === collectionID
+          ? {
+              ...item,
+              recipe: {
+                ...item.recipe,
+                ...values,
+                ingredients: [...values.ingredients],
+                directions: [...values.directions],
+              },
+            }
+          : item,
+      ),
+    );
+  };
+
+  const deleteCollectionRecipe = (collectionID: number) => {
+    setCollectionRecipes((prevRecipes) =>
+      prevRecipes.filter((item) => item.collectionID !== collectionID),
+    );
+  };
+
   return (
     <RecipeContext.Provider
-      value={{ recipes, collectionRecipes, addRecipe, saveCollectionRecipe }}
+      value={{
+        recipes,
+        collectionRecipes,
+        addRecipe,
+        saveCollectionRecipe,
+        updateCollectionRecipe,
+        deleteCollectionRecipe,
+      }}
     >
       {children}
     </RecipeContext.Provider>
